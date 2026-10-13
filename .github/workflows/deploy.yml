@@ -1,0 +1,22 @@
+name: Deploy Automatico via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Fazendo deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter o código mais recente
+        uses: actions/checkout@v6
+
+      - name: Sincronizar arquivos na host
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /htdocs/
