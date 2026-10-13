@@ -1,0 +1,75 @@
+/* Music Fill-in-the-Blank - custom overrides */
+
+/* -----------------------------------------------
+   Inputs dimensionados por largura em caracteres
+   O atributo style="width: Xch" é definido pelo Renderer
+----------------------------------------------- */
+input[type="text"].blank-field {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.6;
+    padding: 0.18rem 0.45rem;
+    box-sizing: content-box;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0.25rem;
+    outline-offset: 2px;
+    vertical-align: baseline;
+}
+
+input[type="text"].blank-field:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* -----------------------------------------------
+   Estados de feedback após avaliação
+----------------------------------------------- */
+input[type="text"].blank-field.correct {
+    border-color: #22c55e; /* green-500 */
+    background-color: #f0fdf4;
+}
+
+input[type="text"].blank-field.close {
+    border-color: #eab308; /* yellow-500 */
+    background-color: #fefce8;
+}
+
+input[type="text"].blank-field.wrong {
+    border-color: #ef4444; /* red-500 */
+    background-color: #fef2f2;
+}
+
+/* -----------------------------------------------
+   Palavra correta exibida abaixo do campo errado
+----------------------------------------------- */
+.correct-word {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: 0.2rem;
+    color: #6b7280; /* gray-500 */
+}
+
+/* -----------------------------------------------
+   Área da letra do exercício
+   Preserva quebras de linha e espaçamento dos versos
+----------------------------------------------- */
+.lyrics-body {
+    line-height: 2;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* -----------------------------------------------
+   Wrapper inline para campo + palavra correta
+   Permite que o label fique abaixo do input sem
+   quebrar o fluxo inline do texto
+----------------------------------------------- */
+.blank-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0.12rem 0.35rem 0.22rem;
+    vertical-align: top;
+}
